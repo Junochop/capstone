@@ -4,6 +4,7 @@ import Login from '../components/Login/Login.js';
 import firebase from 'firebase';
 import Navbar from '../components/Navbar/Navbar.js';
 import AllRecipes from '../components/AllRecipes/AllRecipes.js';
+import MyRecipes from '../components/MyRecipes/MyRecipes.js';
 import Register from '../components/Register/Register.js';
 import fbConnection from '../firebaseRequests/connection';
 fbConnection();
@@ -82,6 +83,11 @@ class App extends Component {
                     path="/AllRecipes"
                     authed={this.state.authed}
                     component={AllRecipes}
+                  />
+                  <PrivateRoute
+                    path="/MyRecipes"
+                    authed={this.state.authed}
+                    component={MyRecipes}
                   />
                   <PublicRoute
                     path="/register"
