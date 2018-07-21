@@ -1,6 +1,6 @@
 import React from 'react';
 import './Recipes.css';
-// import garageRequests from '../../firebaseRequests/garage';
+// import myRecipesRequests from '../../firebaseRequests/MyRecipes';
 // import authRequests from '../../firebaseRequests/auth';
 // import recipesRequests from '../../firebaseRequests/recipes';
 
