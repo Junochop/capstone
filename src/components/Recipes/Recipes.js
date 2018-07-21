@@ -51,29 +51,41 @@ class Recipes extends React.Component {
   // }
 
   render () {
-    // const { details } = this.props;
-    // console.error('bb', this.props.details);
+    const { details } = this.props;
+    // console.error('bb', this.props.details.itemDescription);
 
-    // const image = `${details.itemImage}`;
+    const image = `${details.itemImage}`;
+    const ingredientList = this.props.details.itemDescription;
+    const stepsList = this.props.details.steps;
+    const ingredients = ingredientList.map((ingredient, index) =>
+      <p key={index}>
+        {ingredient.name}: {ingredient.quantity}
+      </p>
+    );
+    const steps = stepsList.map((step, index) =>
+      <p key={index}>
+        {step}
+      </p>
+    );
+
+    console.error('cc', ingredientList);
+
     return (
-      <p>recipes</p>
 
-      // <li className="Item thumbnail">
-      //   <img src={image} alt={details.itemImage} />
-      //   <h3 className="name">
-      //     {details.itemName}
-      //   </h3>
-      //   <p>{details.itemDescription}</p>
-      //   {this.state.flag === 'FromAllTheStuff' ?
-      //     (<button className="btn btn-danger button" onClick={this.saveNewGarage}>add me</button>)
-      //     :
-      //     (
-      //       <div>
-      //         <button className="btn btn-danger button" onClick={this.deleteNewGarage}>Delete</button>
-      //         <button className="btn btn-danger button" onClick={this.viewDetail}>View</button>
-      //       </div>
-      //     )}
-      // </li>
+      <li className="Item thumbnail">
+        <img src={image} alt={details.itemImage} />
+        <h3 className="name">
+          {details.itemName}
+        </h3>
+        <h5 className="ingredients">
+          <b>Ingredients:</b>
+          {ingredients}
+        </h5>
+        <h5 className="steps">
+          <b>Steps</b>
+          {steps}
+        </h5>
+      </li>
 
     );
   }

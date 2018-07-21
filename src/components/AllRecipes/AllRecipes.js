@@ -1,44 +1,44 @@
 import React from 'react';
 
-// import itemRequests from '../../firebaseRequests/item';
-// import Items from '../../components/Items/Items';
+import recipesRequests from '../../firebaseRequests/recipes';
+import Recipes from '../../components/Recipes/Recipes';
 
 class AllRecipes extends React.Component {
-  // state = {
-  //   items: [],
-  // }
+  state = {
+    items: [],
+  }
 
-  // redirectToMyRecipes = () => {
-  //   this.props.history.push('/MyRecipes');
-  // }
+  redirectToMyRecipes = () => {
+    this.props.history.push('/MyRecipes');
+  }
 
-  // componentDidMount () {
-  //   itemRequests
-  //     .getRequestAll()
-  //     .then((items) => {
-  //       this.setState({ items });
-  //     })
-  //     .catch((err) => {
-  //       console.error('error in items', err);
-  //     });
-  // }
+  componentDidMount () {
+    recipesRequests
+      .getRequestAll()
+      .then((items) => {
+        this.setState({ items });
+      })
+      .catch((err) => {
+        console.error('error in items', err);
+      });
+  }
   render () {
-    // const itemComponents = this.state.items.map((item) => {
-    //   return (
-    //     <Items
-    //       key={item.id}
-    //       details={item}
-    //       redirectToMyRecipes={this.redirectToMyRecipes}
-    //       flag='FromAllTheStuff'
-    //     />
-    //   );
-    // });
+    const recipesComponents = this.state.items.map((item) => {
+      return (
+        <Recipes
+          key={item.id}
+          details={item}
+          redirectToMyRecipes={this.redirectToMyRecipes}
+          flag='FromAllRecipes'
+        />
+      );
+    });
     return (
       <div className="New">
         <div className="col-xs-8 inventory-container">
           <h1>All Recipes</h1>
           <ul className="recipes">
-            <p>RecipesComponents</p>
+            {recipesComponents}
           </ul>
 
         </div>
