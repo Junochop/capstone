@@ -34,13 +34,13 @@ class Recipes extends React.Component {
   //     });
   // }
 
-  // deleteNewGarage = () => {
+  // deleteNewMyRecipe = () => {
   //   console.error(this.props);
-  //   garageRequests
+  //   myRecipeRequests
   //     .deleteRequest(this.props.details.id)
   //     .then(() => {
   //       itemRequests
-  //         .getRequestGarage()
+  //         .getRequestMyRecipe()
   //         .then((items) => {
   //           this.props.updateState(items);
   //         });
@@ -78,13 +78,14 @@ class Recipes extends React.Component {
           {details.itemName}
         </h3>
         <h5 className="ingredients">
-          <b>Ingredients:</b>
+          <b>Ingredients</b>
           {ingredients}
         </h5>
         <h5 className="steps">
           <b>Steps</b>
           {steps}
         </h5>
+
       </li>
 
     );

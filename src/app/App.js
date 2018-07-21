@@ -7,6 +7,8 @@ import AllRecipes from '../components/AllRecipes/AllRecipes.js';
 import MyRecipes from '../components/MyRecipes/MyRecipes.js';
 import Register from '../components/Register/Register.js';
 import fbConnection from '../firebaseRequests/connection';
+import './App.css';
+
 fbConnection();
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
