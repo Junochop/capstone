@@ -33,7 +33,7 @@ class Navbar extends React.Component {
                       <Link to="/AllRecipes">All Recipes</Link>
                     </li>
                     <li>
-                      <Link to="/garage">My Recipes</Link>
+                      <Link to="/MyRecipes">My Recipes</Link>
                     </li>
                     <li className="navbar-form">
                       <button
@@ -55,6 +55,12 @@ class Navbar extends React.Component {
             </div>
           </div>
         </nav>
+        <ul>
+          <button>Breakfast</button>
+          <button>Lunch</button>
+          <button>Dinner</button>
+          <button>Dessert</button>
+        </ul>
       </div>
     );
   }
