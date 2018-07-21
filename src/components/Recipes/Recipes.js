@@ -1,8 +1,8 @@
 import React from 'react';
 import './Recipes.css';
-// import garageRequests from '../../firebaseRequests/garage';
+// import myRecipesRequests from '../../firebaseRequests/MyRecipes';
 // import authRequests from '../../firebaseRequests/auth';
-// import itemRequests from '../../firebaseRequests/item';
+// import recipesRequests from '../../firebaseRequests/recipes';
 
 class Recipes extends React.Component {
   // addClickEvent = () => {
