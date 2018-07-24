@@ -24,25 +24,38 @@ const getRequestAll = () => {
   });
 };
 
-// const getRequestGarage = () => {
-//   return new Promise((resolve, reject) => {
-//     axios
-//       .get(`${constants.firebaseConfig.databaseURL}/garage.json`)
-//       .then(res => {
-//         const items = [];
-//         if (res.data !== null) {
-//           Object.keys(res.data).forEach(fbKey => {
-//             res.data[fbKey].id = fbKey;
-//             items.push(res.data[fbKey]);
-//           });
-//         }
-//         resolve(items);
+const getRequestMyRecipes = () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${constants.firebaseConfig.databaseURL}/myrecipes.json`)
+      .then(res => {
+        const items = [];
+        if (res.data !== null) {
+          Object.keys(res.data).forEach(fbKey => {
+            res.data[fbKey].id = fbKey;
+            items.push(res.data[fbKey]);
+          });
+        }
+        resolve(items);
 
-//       })
-//       .catch(err => {
-//         reject(err);
-//       });
-//   });
-// };
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+};
 
-export default { getRequestAll };
+const postRequest = (newRecipe) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${constants.firebaseConfig.databaseURL}/myrecipes.json`, newRecipe)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export default { getRequestAll, getRequestMyRecipes, postRequest };

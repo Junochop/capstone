@@ -1,45 +1,46 @@
 import React from 'react';
 import './Recipes.css';
 // import myRecipesRequests from '../../firebaseRequests/MyRecipes';
-// import authRequests from '../../firebaseRequests/auth';
-// import recipesRequests from '../../firebaseRequests/recipes';
+import authRequests from '../../firebaseRequests/auth';
+import recipesRequests from '../../firebaseRequests/recipes';
 
 class Recipes extends React.Component {
-  // addClickEvent = () => {
-  //   this.props.addToGarage(this.props.details.id);
+  addClickEvent = () => {
+    this.props.addToMyRecipes(this.props.details.id);
 
-  // }
+  }
 
-  // viewDetail = () => {
-  //   const id = this.props.details.id;
-  //   this.props.redirectViewDetail(id);
+  viewDetail = () => {
+    const id = this.props.details.id;
+    this.props.redirectViewDetail(id);
 
-  // }
+  }
 
-  // state = {
-  //   itemDescription: this.props.details.itemDescription,
-  //   itemImage: this.props.details.itemImage,
-  //   itemName: this.props.details.itemName,
-  //   uid: authRequests.getUid(),
-  //   flag: this.props.flag,
-  // }
-  // saveNewGarage = () => {
-  //   garageRequests
-  //     .postRequest(this.state)
-  //     .then(() => {
-  //       this.props.redirectToGarage();
-  //     })
-  //     .catch((err) => {
-  //       console.error('error in post', err);
-  //     });
-  // }
+  state = {
+    itemDescription: this.props.details.itemDescription,
+    itemImage: this.props.details.itemImage,
+    itemName: this.props.details.itemName,
+    uid: authRequests.getUid(),
+    flag: this.props.flag,
+  }
 
-  // deleteNewMyRecipe = () => {
+  saveNewRecipe = () => {
+    recipesRequests
+      .postRequest(this.state)
+      .then(() => {
+        this.props.redirectToMyRecipes();
+      })
+      .catch((err) => {
+        console.error('error in post', err);
+      });
+  }
+
+  // deleteNewRecipe = () => {
   //   console.error(this.props);
-  //   myRecipeRequests
+  //   myRecipesRequests
   //     .deleteRequest(this.props.details.id)
   //     .then(() => {
-  //       itemRequests
+  //       recipeRequests
   //         .getRequestMyRecipe()
   //         .then((items) => {
   //           this.props.updateState(items);
@@ -85,6 +86,15 @@ class Recipes extends React.Component {
           <b>Steps</b>
           {steps}
         </h5>
+        {this.state.flag === 'FromAllRecipes' ?
+          (<button className="btn btn-danger button" onClick={this.saveNewRecipe}>add me</button>)
+          :
+          (
+            <div>
+              <button className="btn btn-danger button" onClick={this.deleteNewRecipe}>Delete</button>
+              <button className="btn btn-danger button" onClick={this.viewDetail}>View</button>
+            </div>
+          )}
 
       </li>
 
