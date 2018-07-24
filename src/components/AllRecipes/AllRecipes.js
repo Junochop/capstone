@@ -5,7 +5,7 @@ import Recipes from '../../components/Recipes/Recipes';
 
 class AllRecipes extends React.Component {
   state = {
-    items: [],
+    recipes: [],
   }
 
   redirectToMyRecipes = () => {
@@ -15,19 +15,19 @@ class AllRecipes extends React.Component {
   componentDidMount () {
     recipesRequests
       .getRequestAll()
-      .then((items) => {
-        this.setState({ items });
+      .then((recipes) => {
+        this.setState({ recipes });
       })
       .catch((err) => {
         console.error('error in items', err);
       });
   }
   render () {
-    const recipesComponents = this.state.items.map((item) => {
+    const recipesComponents = this.state.recipes.map((recipe) => {
       return (
         <Recipes
-          key={item.id}
-          details={item}
+          key={recipe.id}
+          details={recipe}
           redirectToMyRecipes={this.redirectToMyRecipes}
           flag='FromAllRecipes'
         />
