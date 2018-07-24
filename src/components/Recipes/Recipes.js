@@ -20,6 +20,7 @@ class Recipes extends React.Component {
     itemDescription: this.props.details.itemDescription,
     itemImage: this.props.details.itemImage,
     itemName: this.props.details.itemName,
+    steps: this.props.details.steps,
     uid: authRequests.getUid(),
     flag: this.props.flag,
   }
