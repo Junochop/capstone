@@ -1,6 +1,6 @@
 import React from 'react';
 import './Recipes.css';
-// import myRecipesRequests from '../../firebaseRequests/MyRecipes';
+import myRecipesRequests from '../../firebaseRequests/myRecipes';
 import authRequests from '../../firebaseRequests/auth';
 import recipesRequests from '../../firebaseRequests/recipes';
 
@@ -36,21 +36,21 @@ class Recipes extends React.Component {
       });
   }
 
-  // deleteNewRecipe = () => {
-  //   console.error(this.props);
-  //   myRecipesRequests
-  //     .deleteRequest(this.props.details.id)
-  //     .then(() => {
-  //       recipeRequests
-  //         .getRequestMyRecipe()
-  //         .then((items) => {
-  //           this.props.updateState(items);
-  //         });
-  //     })
-  //     .catch((err) => {
-  //       console.error('error in post', err);
-  //     });
-  // }
+  deleteNewRecipe = () => {
+
+    myRecipesRequests
+      .deleteRequest(this.props.details.id)
+      .then(() => {
+        recipesRequests
+          .getRequestMyRecipes()
+          .then((recipes) => {
+            this.props.updateState(recipes);
+          });
+      })
+      .catch((err) => {
+        console.error('error in post', err);
+      });
+  }
 
   render () {
     const { details } = this.props;
@@ -60,17 +60,15 @@ class Recipes extends React.Component {
     const ingredientList = this.props.details.itemDescription;
     const stepsList = this.props.details.steps;
     const ingredients = ingredientList.map((ingredient, index) =>
-      <p key={index}>
+      <div key={index}>
         {ingredient.name}: {ingredient.quantity}
-      </p>
+      </div>
     );
     const steps = stepsList.map((step, index) =>
-      <p key={index}>
+      <div key={index}>
         {step}
-      </p>
+      </div>
     );
-
-    console.error('cc', ingredientList);
 
     return (
 
@@ -93,7 +91,7 @@ class Recipes extends React.Component {
           (
             <div>
               <button className="btn btn-danger button" onClick={this.deleteNewRecipe}>Delete</button>
-              <button className="btn btn-danger button" onClick={this.viewDetail}>View</button>
+              <button className="btn btn-info button" onClick={this.viewDetail}>Add Notes</button>
             </div>
           )}
 

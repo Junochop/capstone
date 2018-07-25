@@ -22,7 +22,7 @@ class New extends React.Component {
     this.setState({ MyRecipes: newMyRecipes });
   }
 
-  removeFromGarage = (key) => {
+  removeFromMyRecipes = (key) => {
     const newMyRecipes = { ...this.state.MyRecipes };
     delete newMyRecipes[key];
     this.setState({ MyRecipes: newMyRecipes });
