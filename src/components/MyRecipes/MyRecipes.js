@@ -36,7 +36,7 @@ class MyRecipes extends React.Component {
         <Recipes
           key={recipe.id}
           details={recipe}
-          flag='FromAllRecipes'
+          flag='FromMyRecipes'
           updateState={this.updateState}
           redirectViewDetail={this.redirectViewDetail}
         />
