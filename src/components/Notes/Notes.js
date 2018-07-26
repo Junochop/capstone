@@ -50,9 +50,15 @@ class Notes extends React.Component {
   }
   render () {
     const ingredientList = this.state.recipes.itemDescription;
+    const stepsList = this.state.recipes.steps;
     const ingredients = ingredientList.map((ingredient, index) =>
       <div key={index}>
         {ingredient.name}: {ingredient.quantity}
+      </div>
+    );
+    const steps = stepsList.map((step, index) =>
+      <div key={index}>
+        {step}
       </div>
     );
     console.error('ho ho', this.state.recipes.itemDescription[0]);
@@ -65,6 +71,7 @@ class Notes extends React.Component {
         <div class="col-md-4">
           <li>{this.state.recipes.itemName}</li>
           <li>{ingredients}</li>
+          <li>{steps}</li>
         </div>
       </div>
     );
