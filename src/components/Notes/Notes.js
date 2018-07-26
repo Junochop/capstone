@@ -3,16 +3,42 @@ import myRecipesRequests from '../../firebaseRequests/myRecipes';
 
 class Notes extends React.Component {
   state = {
-    recipes: [],
+    recipes: {
+      itemDescription: [{
+        name: '',
+        quantity: '',
+        type: '',
+      }],
+      flag: '',
+      itemImage: '',
+      itemName: '',
+      steps: [],
+      uid: '',
+    },
   }
 
   updateRecipeClick = () => {
+    // const showIngredients = () => {
+
+    //   const ingredientList = this.state.recipes.itemDescription;
+    //   const ingredients = ingredientList.map((ingredient, index) =>
+    //     <div key={index}>
+    //       {ingredient.name}: {ingredient.quantity}
+    //     </div>
+    //   ); console.error('ho', ingredients);
+    //   return ingredients;
+    // };
+
     const firebaseId = this.props.match.params.id;
     console.error('firebaseId:', firebaseId);
     myRecipesRequests
       .getSingleRequest(firebaseId)
       .then((newRecipe) => {
         this.setState({ recipes: newRecipe });
+        // showIngredients()
+        //   .then((newIngredient) => {
+        //     this.setState({ingredient: newIngredient});
+        //   });
       })
       .catch((err) => {
         console.error('error in post', err);
@@ -22,9 +48,15 @@ class Notes extends React.Component {
   componentDidMount () {
     this.updateRecipeClick();
   }
-
   render () {
-    console.error(this.state.recipes);
+    const ingredientList = this.state.recipes.itemDescription;
+    const ingredients = ingredientList.map((ingredient, index) =>
+      <div key={index}>
+        {ingredient.name}: {ingredient.quantity}
+      </div>
+    );
+    console.error('ho ho', this.state.recipes.itemDescription[0]);
+    console.error('ho ho', ingredients);
     return (
       <div className="Item thumbnail row">
         <div class="col-md-8">
@@ -32,7 +64,7 @@ class Notes extends React.Component {
         </div>
         <div class="col-md-4">
           <li>{this.state.recipes.itemName}</li>
-
+          <li>{ingredients}</li>
         </div>
       </div>
     );
