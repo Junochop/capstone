@@ -43,7 +43,7 @@ class MyRecipes extends React.Component {
         />
       );
     });
-    console.error('ll', this.state.recipes);
+
     return (
       <div className="MyRecipes">
         <p>{recipesComponents}</p>
