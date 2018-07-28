@@ -3,6 +3,7 @@ import './Recipes.css';
 import myRecipesRequests from '../../firebaseRequests/myRecipes';
 import authRequests from '../../firebaseRequests/auth';
 import recipesRequests from '../../firebaseRequests/recipes';
+import commentsRequests from '../../firebaseRequests/newcomments';
 
 class Recipes extends React.Component {
   addClickEvent = () => {
@@ -23,6 +24,20 @@ class Recipes extends React.Component {
     steps: this.props.details.steps,
     uid: authRequests.getUid(),
     flag: this.props.flag,
+    comments: [],
+  }
+
+  componentDidMount () {
+    console.log('props', this.props.details.id);
+    commentsRequests
+      .getRequest(this.props.details.id)
+      .then((comments) => {
+        console.error('comments',comments);
+        this.setState({ comments });
+      })
+      .catch((err) => {
+        console.error('error in recipes', err);
+      });
   }
 
   saveNewRecipe = () => {
@@ -53,6 +68,7 @@ class Recipes extends React.Component {
   }
 
   render () {
+    console.error('ssss', this.state.commments);
     const { details } = this.props;
     // console.error('bb', this.props.details.itemDescription);
 
@@ -85,6 +101,20 @@ class Recipes extends React.Component {
           <b>Steps</b>
           {steps}
         </h5>
+        {this.state.comments[0] ?
+          (<h5 className="notes">
+            <b>Notes</b>
+
+            <p>{this.state.comments[0].value}</p>
+            <p>{console.error('test:', this.state.comments[0].id)}</p>
+
+          </h5>) : ((<h5 className="notes">
+            <b>Notes</b>
+
+            {/* {details.comments.value} */}
+          </h5>))
+        }
+
         {this.state.flag === 'FromAllRecipes' ?
           (<button className="btn btn-danger button" onClick={this.saveNewRecipe}>add me</button>)
           :

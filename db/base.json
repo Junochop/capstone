@@ -2,6 +2,9 @@
   "recipes": {
     "moo": "cow"
   },
+  "comments": {
+    "moo": "cow"
+  },
   "myrecipes": {
     "big": "bear"
   }
