@@ -1,5 +1,6 @@
 import React from 'react';
 import recipesRequests from '../../firebaseRequests/recipes';
+
 import Recipes from '../../components/Recipes/Recipes';
 
 // import './MyRecipes.css';
@@ -42,7 +43,7 @@ class MyRecipes extends React.Component {
         />
       );
     });
-    console.error('ll', this.state.recipes);
+
     return (
       <div className="MyRecipes">
         <p>{recipesComponents}</p>
