@@ -70,7 +70,7 @@ class Recipes extends React.Component {
   render () {
     console.error('ssss', this.state.commments);
     const { details } = this.props;
-    // console.error('bb', this.props.details.itemDescription);
+    console.error('bb', this.props.details);
 
     const image = `${details.itemImage}`;
     const ingredientList = this.props.details.itemDescription;
@@ -107,6 +107,10 @@ class Recipes extends React.Component {
 
             <p>{this.state.comments[0].value}</p>
             <p>{console.error('test:', this.state.comments[0].id)}</p>
+            <div className="update">
+              <button className="btn btn-danger button" onClick={this.deleteNewRecipe}>Delete</button>
+              <button className="btn btn-info button update" onClick={this.viewDetail}>Update Notes</button>
+            </div>
 
           </h5>) : ((<h5 className="notes">
             <b>Notes</b>
@@ -119,7 +123,7 @@ class Recipes extends React.Component {
           (<button className="btn btn-danger button" onClick={this.saveNewRecipe}>add me</button>)
           :
           (
-            <div>
+            <div ref="initialButtons">
               <button className="btn btn-danger button" onClick={this.deleteNewRecipe}>Delete</button>
               <button className="btn btn-info button" onClick={this.viewDetail}>Add Notes</button>
             </div>
