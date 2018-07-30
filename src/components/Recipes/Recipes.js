@@ -123,7 +123,7 @@ class Recipes extends React.Component {
           (<button className="btn btn-danger button" onClick={this.saveNewRecipe}>add me</button>)
           :
           (
-            <div ref="initialButtons">
+            <div className="initialButtons">
               <button className="btn btn-danger button" onClick={this.deleteNewRecipe}>Delete</button>
               <button className="btn btn-info button" onClick={this.viewDetail}>Add Notes</button>
             </div>
