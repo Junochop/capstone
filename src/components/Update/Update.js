@@ -23,11 +23,23 @@ class Update extends React.Component {
       value: '',
     },
   }
+  handleChange = this.handleChange.bind(this);
+
+  handleChange (event) {
+    this.setState({
+      comments: {
+        recipeId: this.props.match.params.id,
+        uid: '',
+        value: event.target.value,
+      },
+    });
+  }
 
   updateRecipeClick = () => {
 
     const firebaseId = this.props.match.params.id;
     console.error('firebaseId:', firebaseId);
+
     myRecipesRequests
       .getSingleRequest(firebaseId)
       .then((newRecipe) => {
@@ -37,18 +49,18 @@ class Update extends React.Component {
         console.error('error in post', err);
       });
   }
-  // componentDidMount () {
-  //   const firebaseId = this.props.match.params.id;
-  //   commentsRequests
-  //     .getRequest(firebaseId)
-  //     .then((comments) => {
-  //       console.error('comments', comments);
-  //       this.setState({ comments });
-  //     })
-  //     .catch((err) => {
-  //       console.error('error in recipes', err);
-  //     });
-  // }
+  updateClick = () => {
+    const firebaseId = this.props.match.params.id;
+    commentsRequests
+      .putCommentRequest(firebaseId, this.state.comments)
+      .then((newComments) => {
+        this.setState({ comments: newComments });
+      })
+      .catch(((err) => {
+        console.error('error with get delete request', err);
+      }));
+  }
+
   componentDidMount () {
 
     const firebaseId = this.props.match.params.id;
@@ -77,8 +89,6 @@ class Update extends React.Component {
         {step}
       </div>
     );
-    const commentList = this.state.comments.value;
-    console.log('comvalue', commentList);
     return (
       <div className="Item thumbnail row">
         <div className="col-md-8">
@@ -90,9 +100,11 @@ class Update extends React.Component {
           <li>{steps}</li>
           <div className="TextArea">
             <b>Notes</b>
-            <textarea rows="4" cols="50"
-              value={commentList} >
+            <textarea rows="4" cols="50" value={this.state.comments.value} onChange={this.handleChange} >
             </textarea>
+            <div className='UpdateNotes'>
+              <button className="btn btn-info Update button" onClick={this.updateClick}>Update</button>
+            </div>
           </div>
 
         </div>
