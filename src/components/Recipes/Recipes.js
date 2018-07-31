@@ -16,6 +16,11 @@ class Recipes extends React.Component {
     this.props.redirectViewDetail(id);
 
   }
+  viewUpdate = () => {
+    const id = this.props.details.id;
+    this.props.redirectUpdateDetail(id);
+
+  }
 
   state = {
     itemDescription: this.props.details.itemDescription,
@@ -108,8 +113,7 @@ class Recipes extends React.Component {
             <p>{this.state.comments[0].value}</p>
             <p>{console.error('test:', this.state.comments[0].id)}</p>
             <div className="update">
-              <button className="btn btn-danger button" onClick={this.deleteNewRecipe}>Delete</button>
-              <button className="btn btn-info button update" onClick={this.viewDetail}>Update Notes</button>
+              <button className="btn btn-info button update" onClick={this.viewUpdate}>Update Notes</button>
             </div>
 
           </h5>) : ((<h5 className="notes">

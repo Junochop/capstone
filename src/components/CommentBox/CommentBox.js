@@ -1,5 +1,6 @@
 import React from 'react';
 import commentsRequests from '../../firebaseRequests/newcomments';
+import authRequests from '../../firebaseRequests/auth';
 
 class CommentBox extends React.Component {
   constructor (props) {
@@ -8,6 +9,7 @@ class CommentBox extends React.Component {
       newComment: {
         value: 'Please add your comments.',
         recipeId: '',
+        uid: authRequests.getUid(),
       },
     };
 
@@ -23,7 +25,7 @@ class CommentBox extends React.Component {
     commentsRequests
       .postRequest(thing)
       .then(() => {
-        this.props.history.push(/MyRecipes/);
+        this.props.history.push('/MyRecipes');
       })
       .catch(((err) => {
         console.error('error with get delete request', err);
@@ -38,7 +40,6 @@ class CommentBox extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    alert('Your notes are saved: ' + this.state.value);
     this.updateNotesClick();
   }
 

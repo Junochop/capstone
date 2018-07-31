@@ -30,6 +30,10 @@ class MyRecipes extends React.Component {
     this.props.history.push(`/View/${id}`);
   }
 
+  redirectUpdateDetail = (id) => {
+    this.props.history.push(`/Update/${id}`);
+  }
+
   render () {
 
     const recipesComponents = this.state.recipes.map((recipe) => {
@@ -40,6 +44,7 @@ class MyRecipes extends React.Component {
           flag='FromMyRecipes'
           updateState={this.updateState}
           redirectViewDetail={this.redirectViewDetail}
+          redirectUpdateDetail={this.redirectUpdateDetail}
         />
       );
     });
