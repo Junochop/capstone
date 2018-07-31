@@ -1,4 +1,5 @@
 {
+
   "item1": {
     "itemName": "Roast Beef",
     "itemImage": "https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=822bdb839e3a8a6f6a516c9002f88041&auto=format&fit=crop&w=800&q=60",
@@ -35,6 +36,133 @@
       "Pour the water around the roast.",
       "Cook on low for 7-9 hours."
     ]
+  },
+  "item2": {
+    "itemName": "Roasted Asparagus",
+    "itemImage": "https://images.unsplash.com/photo-1511994714008-b6d68a8b32a2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f4d179d0bc06df63e6a3fcb9a08c29a&auto=format&fit=crop&w=800&q=60",
+    "itemDescription": [
+      {
+        "quantity": "1 lb",
+        "name": " asparagus",
+        "type": "Produce"
+      },
+      {
+        "quantity": "1 1/2 tbsp",
+        "name": "olive oil",
+        "type": "Condiments"
+      },
+      {
+        "quantity": "1/2 tsp",
+        "name": "kosher salt",
+        "type": "Baking"
+      }
+    ],
+    "steps": [
+      "Preheat oven to 425°F.",
+      "Cut off the woody bottom part of the asparagus spears and discard.",
+      "With a vegetable peeler, peel off the skin on the bottom 2-3 inches of the spears (this keeps the asparagus from being all.\",string.\", and if you eat asparagus you know what I mean by that).",
+      "Place asparagus on foil-lined baking sheet and drizzle with olive oil.",
+      "Sprinkle with salt.",
+      "With your hands, roll the asparagus around until they are evenly coated with oil and salt.",
+      "Roast for 10-15 minutes, depending on the thickness of your stalks and how tender you like them.",
+      "They should be tender when pierced with the tip of a knife.",
+      "The tips of the spears will get very brown but watch them to prevent burning.",
+      "They are great plain, but sometimes I serve them with a light vinaigrette if we need something acidic to balance out our meal."
+    ]
+  },
+  "item3": {
+    "itemName": "Curried Lentils and Rice",
+    "itemImage": "https://images.unsplash.com/photo-1519624014191-508652cbd7b5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8dfcd134c6c2816fcba724360670c956&auto=format&fit=crop&w=800&q=60",
+    "itemDescription": [
+      {
+        "quantity": "1 quart",
+        "name": "beef broth",
+        "type": "Misc"
+      },
+      {
+        "quantity": "1 cup",
+        "name": "dried green lentils",
+        "type": "Misc"
+      },
+      {
+        "quantity": "1/2 cup",
+        "name": "basmati rice",
+        "type": "Misc"
+      },
+      {
+        "quantity": "1 tsp",
+        "name": "curry powder",
+        "type": "Condiments"
+      },
+      {
+        "quantity": "1 tsp",
+        "name": "salt",
+        "type": "Condiments"
+      }
+    ],
+    "steps": [
+      "Bring broth to a low boil.",
+      "Add curry powder and salt.",
+      "Cook lentils for 20 minutes.",
+      "Add rice and simmer for 20 minutes.",
+      "Enjoy!"
+    ]
+  },
+  "item4": {
+    "itemName": "Big Night Pizza",
+    "itemImage": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=efe01df2ebde79714be88d560479c9c7&auto=format&fit=crop&w=800&q=60",
+    "itemDescription": [
+      {
+        "quantity": "5 teaspoons",
+        "name": "yeast",
+        "type": "Baking"
+      },
+      {
+        "quantity": "5 cups",
+        "name": "flour",
+        "type": "Baking"
+      },
+      {
+        "quantity": "4 tablespoons",
+        "name": "vegetable oil",
+        "type": "Baking"
+      },
+      {
+        "quantity": "2 tablespoons",
+        "name": "sugar",
+        "type": "Baking"
+      },
+      {
+        "quantity": "2 teaspoons",
+        "name": "salt",
+        "type": "Baking"
+      },
+      {
+        "quantity": "2 cups",
+        "name": "hot water",
+        "type": "Misc"
+      },
+      {
+        "quantity": "1/4 cup",
+        "name": "pizza sauce",
+        "type": "Misc"
+      },
+      {
+        "quantity": "3/4 cup",
+        "name": "mozzarella cheese",
+        "type": "Dairy"
+      }
+    ],
+    "steps": [
+      "Add hot water to yeast in a large bowl and let sit for 15 minutes.",
+      "Mix in oil, sugar, salt, and flour and let sit for 1 hour.",
+      "Knead the dough and spread onto a pan.",
+      "Spread pizza sauce and sprinkle cheese.",
+      "Add any optional toppings as you wish.",
+      "Bake at 400 deg Fahrenheit for 15 minutes.",
+      "Enjoy!"
+    ]
   }
+
 }
 
