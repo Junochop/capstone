@@ -7,7 +7,7 @@ class CommentBox extends React.Component {
     super(props);
     this.state = {
       newComment: {
-        value: 'Please add your comments.',
+        value: '',
         recipeId: '',
         uid: authRequests.getUid(),
       },
@@ -31,7 +31,6 @@ class CommentBox extends React.Component {
         console.error('error with get delete request', err);
       }));
   }
-
   handleChange (event) {
     const thing = { ...this.state.newComment };
     thing.value = event.target.value;

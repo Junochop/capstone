@@ -7,7 +7,6 @@ const getRequest = (recipeID) => {
     axios
       .get(`${constants.firebaseConfig.databaseURL}/comments.json?orderBy="recipeId"&equalTo="${recipeID}"`)
       .then(res => {
-        console.log('hi', recipeID);
         const recipes = [];
         if (res.data !== null) {
           Object.keys(res.data).forEach(fbKey => {
@@ -27,7 +26,6 @@ const getCommentsRequest = (recipeID) => {
     axios
       .get(`${constants.firebaseConfig.databaseURL}/comments.json?orderBy="recipeId"&equalTo="${recipeID}"`)
       .then(res => {
-        console.log('hi', recipeID);
         const commentKey = Object.keys(res.data)[0];
         // console.error(commentKey);
         resolve(res.data[commentKey]);
@@ -42,6 +40,19 @@ const postRequest = (newComments) => {
   return new Promise((resolve, reject) => {
     axios
       .post(`${constants.firebaseConfig.databaseURL}/comments.json`, newComments)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+const putCommentRequest = (recipeID, newComments) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .put(`${constants.firebaseConfig.databaseURL}/comments/${recipeID}.json`, newComments)
       .then((res) => {
         resolve(res);
       })
@@ -90,4 +101,4 @@ const putRequest = (recipeId, updatedRecipe) => {
   });
 };
 
-export default { getRequest, postRequest, deleteRequest, getSingleRequest, putRequest, getCommentsRequest };
+export default { getRequest, postRequest, deleteRequest, getSingleRequest, putRequest, getCommentsRequest, putCommentRequest };
