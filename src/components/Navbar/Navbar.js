@@ -22,7 +22,7 @@ class Navbar extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <Link to="/" className="navbar-brand">Masterchef Journal </Link>
+              <Link to="/" className="navbar-brand">MasterChef Journal </Link>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
