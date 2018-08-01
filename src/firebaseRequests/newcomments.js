@@ -27,6 +27,7 @@ const getCommentsRequest = (recipeID) => {
       .get(`${constants.firebaseConfig.databaseURL}/comments.json?orderBy="recipeId"&equalTo="${recipeID}"`)
       .then(res => {
         const commentKey = Object.keys(res.data)[0];
+        console.error('test:',commentKey);
         // console.error(commentKey);
         resolve(res.data[commentKey]);
       })
@@ -36,6 +37,21 @@ const getCommentsRequest = (recipeID) => {
   });
 };
 
+const getCommentsKey = (recipeID) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${constants.firebaseConfig.databaseURL}/comments.json?orderBy="recipeId"&equalTo="${recipeID}"`)
+      .then(res => {
+        const commentKey = Object.keys(res.data)[0];
+        console.error('test:', commentKey);
+        // console.error(commentKey);
+        resolve(commentKey);
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+};
 const postRequest = (newComments) => {
   return new Promise((resolve, reject) => {
     axios
@@ -101,4 +117,4 @@ const putRequest = (recipeId, updatedRecipe) => {
   });
 };
 
-export default { getRequest, postRequest, deleteRequest, getSingleRequest, putRequest, getCommentsRequest, putCommentRequest };
+export default { getRequest, postRequest, deleteRequest, getSingleRequest, putRequest, getCommentsRequest, putCommentRequest, getCommentsKey};

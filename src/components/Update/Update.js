@@ -1,6 +1,5 @@
 import React from 'react';
 import myRecipesRequests from '../../firebaseRequests/myRecipes';
-// import CommentBox from '../CommentBox/CommentBox';
 import commentsRequests from '../../firebaseRequests/newcomments';
 
 class Update extends React.Component {
@@ -20,7 +19,7 @@ class Update extends React.Component {
     comments: {
       recipeId: '',
       uid: '',
-      value: '',
+      value: '33',
     },
   }
   handleChange = this.handleChange.bind(this);
@@ -38,8 +37,6 @@ class Update extends React.Component {
   updateRecipeClick = () => {
 
     const firebaseId = this.props.match.params.id;
-    console.error('firebaseId:', firebaseId);
-
     myRecipesRequests
       .getSingleRequest(firebaseId)
       .then((newRecipe) => {
@@ -49,12 +46,15 @@ class Update extends React.Component {
         console.error('error in post', err);
       });
   }
+
   updateClick = () => {
     const firebaseId = this.props.match.params.id;
-    commentsRequests
-      .putCommentRequest(firebaseId, this.state.comments)
-      .then((newComments) => {
-        this.setState({ comments: newComments });
+    commentsRequests.getCommentsKey(firebaseId)
+      .then((originalRecordKey) => {
+        commentsRequests.putCommentRequest(originalRecordKey, this.state.comments)
+          .then((newComments) => {
+            this.setState({ comments: newComments });
+          });
       })
       .catch(((err) => {
         console.error('error with get delete request', err);
@@ -100,7 +100,7 @@ class Update extends React.Component {
           <li>{steps}</li>
           <div className="TextArea">
             <b>Notes</b>
-            <textarea rows="4" cols="50" value={this.state.comments.value} onChange={this.handleChange} >
+            <textarea rows="4" cols="50" value={this.state.comments ? this.state.comments.value : null} onChange={this.handleChange} >
             </textarea>
             <div className='UpdateNotes'>
               <button className="btn btn-info Update button" onClick={this.updateClick}>Update</button>

@@ -37,7 +37,6 @@ class Recipes extends React.Component {
     commentsRequests
       .getRequest(this.props.details.id)
       .then((comments) => {
-        console.error('comments',comments);
         this.setState({ comments });
       })
       .catch((err) => {
@@ -73,10 +72,7 @@ class Recipes extends React.Component {
   }
 
   render () {
-    console.error('ssss', this.state.commments);
     const { details } = this.props;
-    console.error('bb', this.props.details);
-
     const image = `${details.itemImage}`;
     const ingredientList = this.props.details.itemDescription;
     const stepsList = this.props.details.steps;
