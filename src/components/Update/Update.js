@@ -19,7 +19,7 @@ class Update extends React.Component {
     comments: {
       recipeId: '',
       uid: '',
-      value: '33',
+      value: '',
     },
   }
   handleChange = this.handleChange.bind(this);
