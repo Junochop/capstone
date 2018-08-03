@@ -19,7 +19,6 @@ class CommentBox extends React.Component {
 
   updateNotesClick = () => {
     const recipeId = this.props.noteID;
-    console.error('id', recipeId);
     const thing = {...this.state.newComment};
     thing.recipeId = recipeId;
     commentsRequests

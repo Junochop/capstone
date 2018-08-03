@@ -70,6 +70,10 @@ class Recipes extends React.Component {
         console.error('error in post', err);
       });
   }
+  hideclickevent () {
+    const listmenu = document.getElementsByClassName('initialButtons');
+    listmenu.style.display = 'none';
+  }
 
   render () {
     const { details } = this.props;
@@ -125,7 +129,7 @@ class Recipes extends React.Component {
           (
             <div className="initialButtons">
               <button className="btn btn-danger button" onClick={this.deleteNewRecipe}>Delete</button>
-              <button className="btn btn-info button" onClick={this.viewDetail}>Add Notes</button>
+              <button className="btn btn-info vieww button" onClick={this.viewDetail}>Add Notes</button>
             </div>
           )}
 
