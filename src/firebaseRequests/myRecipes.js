@@ -35,10 +35,10 @@ const postRequest = (newRecipe) => {
   });
 };
 
-const deleteRequest = (recipeId, commentsId) => {
+const deleteRequest = (recipeId, comments) => {
   return new Promise((resolve, reject) => {
     axios
-      .delete(`${constants.firebaseConfig.databaseURL}/myrecipes/${recipeId}.json`)
+      .delete(`${constants.firebaseConfig.databaseURL}/myrecipes/${recipeId}.json`, comments)
       .then((res) => {
         resolve(res);
       })
