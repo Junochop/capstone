@@ -21,7 +21,6 @@ class Notes extends React.Component {
   updateRecipeClick = () => {
 
     const firebaseId = this.props.match.params.id;
-    console.error('firebaseId:', firebaseId);
     myRecipesRequests
       .getSingleRequest(firebaseId)
       .then((newRecipe) => {
