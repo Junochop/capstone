@@ -31,6 +31,10 @@ class Notes extends React.Component {
       });
   }
 
+  redirectToMyRecipes = () => {
+    this.props.history.push('/MyRecipes');
+  }
+
   componentDidMount () {
     this.updateRecipeClick();
   }
@@ -59,7 +63,10 @@ class Notes extends React.Component {
           <li>{ingredients}</li>
           <li>{steps}</li>
           <div className="commentBox">
-            <CommentBox noteID={this.props.match.params.id}/>
+            <CommentBox
+              noteID={this.props.match.params.id}
+              redirectToMyRecipes={this.redirectToMyRecipes}
+            />
           </div>
 
         </div>
