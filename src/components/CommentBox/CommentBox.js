@@ -24,7 +24,7 @@ class CommentBox extends React.Component {
     commentsRequests
       .postRequest(thing)
       .then(() => {
-        this.props.history.push('/MyRecipes');
+        this.props.redirectToMyRecipes();
       })
       .catch(((err) => {
         console.error('error with get delete request', err);
