@@ -36,7 +36,7 @@ class AllRecipes extends React.Component {
     return (
       <div className="New">
         <div className="col-xs-8 inventory-container">
-          <h1>All Recipes</h1>
+          <h1>Featured Recipes</h1>
           <ul className="recipes">
             {recipesComponents}
           </ul>
