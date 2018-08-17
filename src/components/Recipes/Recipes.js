@@ -55,26 +55,10 @@ class Recipes extends React.Component {
       });
   }
 
-  // deleteNewRecipe = () => {
-
-  //   myRecipesRequests
-  //     .deleteRequest(this.props.details.id)
-  //     .then(() => {
-  //       recipesRequests
-  //         .getRequestMyRecipes()
-  //         .then((recipes) => {
-  //           this.props.updateState(recipes);
-  //         });
-  //     })
-  //     .catch((err) => {
-  //       console.error('error in post', err);
-  //     });
-  // }
-
   deleteNewRecipe = () => {
-    const firebaseId = this.props.match.params.id;
+
     myRecipesRequests
-      .deleteRequest(firebaseId, this.state.comments)
+      .deleteRequest(this.props.details.id)
       .then(() => {
         recipesRequests
           .getRequestMyRecipes()
@@ -86,6 +70,22 @@ class Recipes extends React.Component {
         console.error('error in post', err);
       });
   }
+
+  // deleteNewRecipe = () => {
+  //   const firebaseId = this.props.match.params.id;
+  //   myRecipesRequests
+  //     .deleteRequest(firebaseId, this.state.comments)
+  //     .then(() => {
+  //       recipesRequests
+  //         .getRequestMyRecipes()
+  //         .then((recipes) => {
+  //           this.props.updateState(recipes);
+  //         });
+  //     })
+  //     .catch((err) => {
+  //       console.error('error in post', err);
+  //     });
+  // }
 
   updateClick = () => {
     const firebaseId = this.props.match.params.id;
