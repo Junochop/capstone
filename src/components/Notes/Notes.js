@@ -31,9 +31,9 @@ class Notes extends React.Component {
       });
   }
 
-  redirectToMyRecipes = () => {
-    this.props.history.push('/MyRecipes');
-  }
+  // redirectToMyRecipes = () => {
+  //   this.props.history.push('/MyRecipes');
+  // }
 
   componentDidMount () {
     this.updateRecipeClick();

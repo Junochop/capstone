@@ -34,6 +34,10 @@ class Update extends React.Component {
     });
   }
 
+  redirectToMyRecipes = () => {
+    this.props.history.push('/MyRecipes');
+  }
+
   updateRecipeClick = () => {
 
     const firebaseId = this.props.match.params.id;
@@ -54,6 +58,7 @@ class Update extends React.Component {
         commentsRequests.putCommentRequest(originalRecordKey, this.state.comments)
           .then((newComments) => {
             this.setState({ comments: newComments });
+            this.redirectToMyRecipes();
           });
       })
       .catch(((err) => {
