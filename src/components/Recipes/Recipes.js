@@ -108,7 +108,6 @@ class Recipes extends React.Component {
 
   deleteaddButton = () => {
     let string = '';
-    console.error('lenth',this.state.comments.length);
     if (this.state.flag === 'FromAllRecipes') {
       string = <div><button className="btn btn-danger button" onClick={this.saveNewRecipe}>add me</button></div>;
       return string;

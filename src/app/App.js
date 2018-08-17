@@ -9,6 +9,7 @@ import Register from '../components/Register/Register.js';
 import Notes from '../components/Notes/Notes.js';
 import Update from '../components/Update/Update.js';
 import Search from '../components/Search/Search.js';
+import SearchedDetail from '../components/SearchedDetail/SearchedDetail.js';
 import fbConnection from '../firebaseRequests/connection';
 import './App.css';
 
@@ -108,6 +109,11 @@ class App extends Component {
                     path="/Search"
                     authed={this.state.authed}
                     component={Search}
+                  />
+                  <PrivateRoute
+                    path="/SearchedDetail/:id"
+                    authed={this.state.authed}
+                    component={SearchedDetail}
                   />
                   <PublicRoute
                     path="/register"

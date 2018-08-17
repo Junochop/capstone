@@ -13,7 +13,7 @@ class Search extends React.Component {
 
     const SearchRecipeName = e.target.elements.SearchRecipeName.value;
     e.preventDefault();
-    const apiCall = await fetch(`https://cors-anywhere.herokuapp.com/http://food2fork.com/api/search?key=${API_KEY}&q=${SearchRecipeName}&count=10`);
+    const apiCall = await fetch(`https://cors-anywhere.herokuapp.com/http://food2fork.com/api/search?key=${API_KEY}&q=${SearchRecipeName}&count=18`);
     const data = await apiCall.json();
 
     console.log(SearchRecipeName);
@@ -27,7 +27,7 @@ class Search extends React.Component {
         <div>
           <form onSubmit={this.getRecipe} style={{ marginBottom: '2rem' }}>
             <input className="form__input" type="text" name="SearchRecipeName" />
-            <button className="form__button">Search</button>
+            <button className="form__button btn btn-default">Search</button>
           </form>;
         </div>
 
@@ -45,7 +45,9 @@ class Search extends React.Component {
                         <h5><b>{recipe.title}</b></h5>
                         <p>Source: <span>{recipe.publisher}</span></p>
                       </div>
-                      <button className="recipe__button">More Info</button>
+                      <button className="recipe__button btn btn-info ">
+                        <a target="_blank" href={recipe.source_url}>More Info</a>
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -30,13 +30,13 @@ class Navbar extends React.Component {
                 authed ? (
                   <ul className="nav navbar-nav navbar-right">
                     <li>
-                      <Link to="/AllRecipes">All Recipes</Link>
+                      <Link to="/AllRecipes">Featured Recipes</Link>
                     </li>
                     <li>
                       <Link to="/MyRecipes">My Recipes</Link>
                     </li>
                     <li>
-                      <Link to="/Search">Search</Link>
+                      <Link to="/Search">Recipe Library</Link>
                     </li>
                     <li className="navbar-form">
                       <button
@@ -58,12 +58,6 @@ class Navbar extends React.Component {
             </div>
           </div>
         </nav>
-        <ul>
-          <button>Breakfast</button>
-          <button>Lunch</button>
-          <button>Dinner</button>
-          <button>Dessert</button>
-        </ul>
       </div>
     );
   }
