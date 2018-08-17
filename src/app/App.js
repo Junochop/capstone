@@ -8,6 +8,7 @@ import MyRecipes from '../components/MyRecipes/MyRecipes.js';
 import Register from '../components/Register/Register.js';
 import Notes from '../components/Notes/Notes.js';
 import Update from '../components/Update/Update.js';
+import Search from '../components/Search/Search.js';
 import fbConnection from '../firebaseRequests/connection';
 import './App.css';
 
@@ -102,6 +103,11 @@ class App extends Component {
                     path="/Update/:id"
                     authed={this.state.authed}
                     component={Update}
+                  />
+                  <PrivateRoute
+                    path="/Search"
+                    authed={this.state.authed}
+                    component={Search}
                   />
                   <PublicRoute
                     path="/register"
