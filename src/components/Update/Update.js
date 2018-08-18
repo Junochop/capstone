@@ -100,12 +100,12 @@ class Update extends React.Component {
           <img src={this.state.recipes.itemImage} alt={this.state.recipes.itemName} />
         </div>
         <div className="col-md-4">
-          <li>{this.state.recipes.itemName}</li>
+          <li><b>{this.state.recipes.itemName}</b></li>
           <li>{ingredients}</li>
           <li>{steps}</li>
           <div className="TextArea">
             <b>Notes</b>
-            <textarea rows="4" cols="50" value={this.state.comments ? this.state.comments.value : null} onChange={this.handleChange} >
+            <textarea rows="4" cols="40" value={this.state.comments ? this.state.comments.value : null} onChange={this.handleChange} >
             </textarea>
             <div className='UpdateNotes'>
               <button className="btn btn-info Update button" onClick={this.updateClick}>Update</button>
